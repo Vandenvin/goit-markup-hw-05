@@ -66,7 +66,7 @@
         <section class=" banner">
             <div class="container">
                 <h1 class="banner-title">ЭФФЕКТИВНЫЕ РЕШЕНИЯ ДЛЯ ВАШЕГО БИЗНЕСА</h1>
-                <button type="button" class="banner-btn">Заказать услугу</button>
+                <button type="button" class="banner-btn" data-modal-open>Заказать услугу</button>
             </div>
         </section>
 
@@ -134,15 +134,26 @@
             <div class="container">
                 <h2 class="section-title">Чем мы занимаемся</h2>
                 <ul class="work-list list">
-                    <li>
-                        <img src="./images/box1.jpg" alt="Написание веб сайтов" width="370" height="294">
 
+                    <li class="item">
+                        <img src="./images/box1.jpg" alt="Написание веб сайтов" width="370" height="294">
+                        <div class="title">
+                            <h3 class="title-text">ДЕСКТОПНЫЕ ПРИЛОЖЕНИЯ</h3>
+                        </div>
                     </li>
-                    <li>
+
+                    <li class="item">
                         <img src="./images/box2.jpg" alt="Написание прложений" width="370" height="294">
+                        <div class="title">
+                            <h3 class="title-text">МОБИЛЬНЫЕ ПРИЛОЖЕНИЯ</h3>
+                        </div>
                     </li>
-                    <li>
+
+                    <li class="item">
                         <img src="./images/box3.jpg" alt="Дизайн" width="370" height="294">
+                        <div class="title">
+                            <h3 class="title-text">ДИЗАЙНЕРСКИЕ РЕШЕНИЯ</h3>
+                        </div>
                     </li>
 
                 </ul>
@@ -410,8 +421,6 @@
         </section>
     </main>
 
-
-
     <!-- Футтер -->
     <footer class="page-footer" id="main-footer">
         <div class="container footer">
@@ -482,6 +491,15 @@
         </div>
 
     </footer>
+
+    <!-- модальное окно "заказать услугу" -->
+    <div class="backdrop is-hidden" data-modal>
+        <div class="modal">
+            <button type="button" class="modal-btn" data-modal-close></button>
+        </div>
+    </div>
+
+    <script src="./js/modal.js"></script>
 </body>
 
 </html>
