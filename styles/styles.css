@@ -129,18 +129,20 @@ body {
 }
 
 .site-nav .link {
+  position: relative;
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
 
   text-decoration: none;
   color: var(--text-primary-black-color);
+
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
 
-  position: relative;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-nav .link.current::after {
@@ -154,6 +156,31 @@ body {
   left: 0;
   background-color: var(--focus-color);
   border-radius: 2px;
+
+  animation: animation 750ms linear;
+}
+
+@keyframes animation {
+  10%,
+  90% {
+    transform: translateX(-1px);
+  }
+
+  20%,
+  80% {
+    transform: translateX(2px);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translateX(-4px);
+  }
+
+  40%,
+  60% {
+    transform: translateX(4px);
+  }
 }
 
 .site-nav .link.current {
@@ -186,6 +213,8 @@ body {
   letter-spacing: 0.02em;
 
   fill: var(--text-second-black-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-contact .list {
@@ -256,6 +285,8 @@ body {
   box-shadow: 0px 4px 4px var(--shadow-main-button);
   border-radius: 4px;
   cursor: pointer;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .banner-btn:hover,
 .banner-btn:focus {
@@ -430,6 +461,9 @@ body {
 
   fill: var(--border-client-color);
   background-color: var(--background-primary-color);
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-social .thumb {
@@ -466,6 +500,8 @@ body {
 
   border: 1px solid var(--border-client-color);
   border-radius: 4px;
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-list .thumb:hover,
@@ -521,6 +557,8 @@ body {
 
   fill: var(--background-primary-color);
   background-color: var(--background-connect-social-link-color);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .connect-social-links .thumb {
@@ -530,12 +568,6 @@ body {
 
 .connect-social-links .link:hover,
 .connect-social-links .link:focus {
-  background-color: var(--focus-color);
-}
-
-.team-social .link:hover,
-.team-social .link:focus {
-  fill: var(--background-primary-color);
   background-color: var(--focus-color);
 }
 
@@ -580,12 +612,13 @@ body {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* footer focus on tel and mail*/
 .footer-contact .link:hover,
 .footer-contact .link:focus {
-  text-decoration: none;
   color: var(--focus-color);
 }
 
@@ -600,6 +633,8 @@ body {
   opacity: 1;
 
   z-index: 2;
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
@@ -607,11 +642,15 @@ body {
   pointer-events: none;
 }
 
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
 
   min-width: 528px;
   min-height: 581px;
@@ -619,6 +658,8 @@ body {
   padding: 8px;
 
   background-color: var(--background-primary-color);
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal .modal-btn {
@@ -670,6 +711,9 @@ body {
   padding: 6px 22px;
   border-style: inherit;
   border-radius: 4px;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-filter .btn:hover,
@@ -694,10 +738,13 @@ body {
 }
 .portfolio-project .link {
   display: block;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-project .card-img {
   position: relative;
+  overflow: hidden;
 }
 
 .portfolio-project .hover-thumb {
@@ -709,11 +756,12 @@ body {
   align-items: center;
   justify-content: center;
 
-  width: 370px;
-  height: 294px;
+  width: 100%;
+  height: 100%;
   background-color: var(--backround-portfolio-card-hover);
 
-  opacity: 0;
+  transform: translateY(101%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-project .hover-text {
@@ -735,7 +783,7 @@ body {
 }
 .portfolio-project .link:hover .hover-thumb,
 .portfolio-project .link:focus .hover-thumb {
-  opacity: 1;
+  transform: translateY(0);
 }
 
 .portfolio-project .img-sign {
